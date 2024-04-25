@@ -4,10 +4,10 @@
 
 import React, { createContext, useState, useContext } from 'react';
 
-interface Flight {
-  origin: string;
-  destination: string;
-  price: number;
+export interface Flight {
+  cityFrom: string; 
+  cityTo: string; 
+  price: number; 
 }
 
 interface FlightContextType {
