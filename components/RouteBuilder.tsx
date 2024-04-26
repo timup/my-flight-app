@@ -1,6 +1,6 @@
 // components/RouteBuilder.tsx
 import React from 'react';
-import { Flight } from './FlightDisplay';  // Reuse the Flight interface
+import { Flight } from "../types";  // Reuse the Flight interface
 
 interface RouteBuilderProps {
   route: Flight[];  // List of selected flights
