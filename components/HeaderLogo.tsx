@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 
 // Function to generate a random delay within a range
-const getRandomDelay = (min, max) => {
+const getRandomDelay = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
