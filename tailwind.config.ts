@@ -8,6 +8,9 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      animation: {
+        takeoff: "takeoff 6s ease-in infinite alternate",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
@@ -15,6 +18,13 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)"],
+      },
+      keyframes: {
+        takeoff: {
+          "0%": { transform: "translateX(0)", opacity: "1"},
+          "50%": {transform: "translateX(100vw)", opacity: "0" },
+          "100%": { transform: "translateX(0)", opacity: "1" },
+        },
       },
     },
   },

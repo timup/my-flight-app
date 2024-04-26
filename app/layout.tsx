@@ -5,6 +5,7 @@ import { Inter } from "next/font/google"; // Google font
 
 import { FlightProvider, useFlightContext } from "../components/FlightContext";
 import Clock from "../components/Clock";
+import HeaderLogo from "../components/HeaderLogo";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
@@ -41,13 +42,7 @@ export default function RootLayout({
           </header> */}
 
           <main className="p-6">
-            <div className="whitespace-pre">
-              <h1 className="text-2xl font-extrabold tracking-wide my-1">
-                <Link href="/flights">
-                  FLIGHTLINES <span className="text-3xl font-black">✈︎</span>
-                </Link>
-              </h1>
-            </div>
+            <HeaderLogo />
 
             <div className="my-1 text-sm">
               <Clock />
