@@ -3,9 +3,10 @@ import Link from "next/link"; // Navigation
 import "./globals.css"; // Global styles
 import { Inter } from "next/font/google"; // Google font
 
-import { FlightProvider } from "../components/FlightContext";
+import { FlightProvider, useFlightContext } from "../components/FlightContext";
+import Clock from "../components/Clock";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 
 export const metadata: Metadata = {
   title: "My Flight App",
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <FlightProvider>
       <html lang="en">
-        <body className={`${inter.className} bg-gray-50`}>
-          <header className="bg-gray-800 text-white p-4">
+        <body
+          className={`${inter.variable} container mx-auto font-sans bg-gray-50`}
+        >
+          {/* <header className="bg-gray-800 text-white p-4">
             <nav>
               <ul className="flex space-x-4">
                 <li>
@@ -35,9 +38,23 @@ export default function RootLayout({
                 </li>
               </ul>
             </nav>
-          </header>
+          </header> */}
 
-          <main className="p-6">{children}</main>
+          <main className="p-6">
+            <div className="whitespace-pre">
+              <h1 className="text-2xl font-extrabold tracking-wide my-1">
+                <Link href="/flights">
+                  FLIGHTLINES <span className="text-3xl font-black">✈︎</span>
+                </Link>
+              </h1>
+            </div>
+
+            <div className="my-1 text-sm">
+              <Clock />
+            </div>
+
+            {children}
+          </main>
 
           {/* <footer className="bg-gray-800 text-white text-center p-4">
             <p>

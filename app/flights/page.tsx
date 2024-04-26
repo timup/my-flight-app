@@ -45,8 +45,8 @@ const FlightsPage = () => {
 
   return (
     <div>
-      <AirportSelector onSelect={handleAirportSelect} />
-      {isLoading ? (
+      {/* <AirportSelector onSelect={handleAirportSelect} /> */}
+      {/* {isLoading ? (
         <p>Loading flights...</p> // Display loading message
       ) : (
         <FlightDisplay flights={flights} onSelect={handleFlightSelect} />
@@ -57,7 +57,7 @@ const FlightsPage = () => {
         className="bg-green-500 text-white p-2 rounded mt-4"
       >
         Generate Deep Link
-      </button>
+      </button> */}
     </div>
   );
 };

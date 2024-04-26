@@ -1,11 +1,6 @@
 // components/FlightDisplay.tsx
 import React from "react";
-
-export interface Flight {
-  cityFrom: string; // Origin airport code
-  cityTo: string; // Destination airport code
-  price: number; // Flight price
-}
+import { Flight } from "../types";
 
 interface FlightDisplayProps {
   flights: Flight[]; // List of flights to display

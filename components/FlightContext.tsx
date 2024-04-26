@@ -2,15 +2,11 @@
 
 "use client";
 
-import React, { createContext, useState, useContext } from 'react';
-
-export interface Flight {
-  cityFrom: string; 
-  cityTo: string; 
-  price: number; 
-}
+import React, { createContext, useState, useContext, useEffect } from 'react';
+import { Flight } from '../types';
 
 interface FlightContextType {
+  currentTime: Date;
   flights: Flight[];
   route: Flight[];
   setFlights: (flights: Flight[]) => void;
@@ -22,13 +18,22 @@ const FlightContext = createContext<FlightContextType | undefined>(undefined);
 export const FlightProvider = ({ children }: { children: React.ReactNode }) => {
   const [flights, setFlights] = useState<Flight[]>([]);
   const [route, setRoute] = useState<Flight[]>([]);
+  const [currentTime, setCurrentTime] = useState(new Date());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const addFlightToRoute = (flight: Flight) => {
     setRoute((prevRoute) => [...prevRoute, flight]);
   };
 
   return (
-    <FlightContext.Provider value={{ flights, route, setFlights, addFlightToRoute }}>
+    <FlightContext.Provider value={{ currentTime, flights, route, setFlights, addFlightToRoute }}>
       {children}
     </FlightContext.Provider>
   );
